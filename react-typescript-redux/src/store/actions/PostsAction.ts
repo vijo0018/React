@@ -1,6 +1,6 @@
 import * as type from "../action-types/PostsActionTypes";
 import { Dispatch } from "redux";
-import axios from "axios";
+import { getPosts } from './../../services/postsService';
 
 export const fetchPosts = () => async (dispatch: Dispatch<type.PostsDispatchTypes>) => {
     try {
@@ -8,7 +8,7 @@ export const fetchPosts = () => async (dispatch: Dispatch<type.PostsDispatchType
             type: type.POSTS_LOADING,
         });
 
-        const res = await axios.get("https://jsonplaceholder.typicode.com/posts")
+        const res = await getPosts()
 
         dispatch({
             type: type.POSTS_SUCCESS,
