@@ -1,6 +1,6 @@
 import * as type from "../action-types/PostsActionTypes";
 import { Dispatch } from "redux";
-import { getPosts } from './../../services/postsService';
+import { getPosts } from '../../api/postsAPI';
 
 export const fetchPosts = () => async (dispatch: Dispatch<type.PostsDispatchTypes>) => {
     try {
