@@ -11,8 +11,6 @@ const middlewares = process.env.NODE_ENV !== 'production' ? [...middleware, logg
 
 export const Store = createStore(RootReducer, composeWithDevTools(applyMiddleware(...middlewares)));
 
-export type RootStore = ReturnType<typeof RootReducer>;
-
 export const Persistor = persistStore(Store);
 
 export default Store;
