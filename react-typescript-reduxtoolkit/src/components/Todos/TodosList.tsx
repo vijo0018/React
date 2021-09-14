@@ -9,7 +9,7 @@ const TodosList = ({todos}: TodosListProps) => {
   return (
     <div>
       <ul>
-        {todos.map((todo) => <TodoItem todo={todo} />)}
+        {todos.map((todo, index) => <TodoItem key={index} todo={todo} />)}
       </ul>
     </div>
   )
