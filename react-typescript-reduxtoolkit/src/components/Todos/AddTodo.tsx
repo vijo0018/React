@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import Button from './../UI/Button';
 
 interface AddTodoProps {
   onAddTodo: (todo:string) => void
@@ -9,14 +10,16 @@ const AddTodo = ({onAddTodo}: AddTodoProps) => {
 
   const addTodoHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
-    onAddTodo(inputRef.current.value)
-    inputRef.current.value = ""
+    if (inputRef.current.value.trim().length !== 0) {
+      onAddTodo(inputRef.current.value)
+      inputRef.current.value = ""
+    }
   }
 
   return (
     <form>
       <input type='text' ref={inputRef}/>
-      <button onClick={addTodoHandler} type='submit'>Add todo</button>
+      <Button onClick={addTodoHandler} type='submit'>Add todo</Button>
     </form>
   )
 }
